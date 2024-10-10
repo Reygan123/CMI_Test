@@ -2,27 +2,34 @@
     "version": 2,
     "builds": [
       {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "public"
-        }
+        "src": "public/index.php",
+        "use": "@vercel/php"
+      },
+      {
+        "src": "public/**/*",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/public/$1" }
+      {
+        "src": "/(.*)",
+        "dest": "public/index.php"
+      }
     ],
     "env": {
+      "APP_NAME": "CMI",
       "APP_ENV": "production",
       "APP_KEY": "base64:mBILpSpYlRKHHxcabaPyTakyFR7yQqn7T8IL8BMMLGg=",
       "APP_DEBUG": "false",
-      "APP_URL": "https://your-vercel-url.com",
+      "APP_URL": "https://your-app-url.vercel.app",
+      
       "DB_CONNECTION": "mysql",
       "DB_HOST": "127.0.0.1",
       "DB_PORT": "3306",
       "DB_DATABASE": "cmi_test",
       "DB_USERNAME": "root",
       "DB_PASSWORD": "",
+      
       "CACHE_DRIVER": "file",
       "QUEUE_CONNECTION": "sync",
       "SESSION_DRIVER": "file",
