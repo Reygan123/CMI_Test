@@ -2,15 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "public/**/*",
-        "use": "@vercel/static-build"
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "public"
+        }
       }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/public/$1"
-      }
+      { "src": "/(.*)", "dest": "/public/$1" }
     ],
     "env": {
       "APP_ENV": "production",
