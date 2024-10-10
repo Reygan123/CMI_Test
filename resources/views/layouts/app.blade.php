@@ -5,8 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="@yield('meta_description', 'Default description for the application')">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <script src="//unpkg.com/alpinejs" defer></script>
+        <script src="https://cdn.tailwindcss.com"></script>
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -19,13 +21,6 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            {{-- <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    @yield('header') <!-- Menggunakan section header -->
-                </div>
-            </header> --}}
 
             <!-- Page Content -->
             <main class="">

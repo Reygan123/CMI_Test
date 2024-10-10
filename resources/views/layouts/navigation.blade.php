@@ -105,6 +105,11 @@
             <x-responsive-nav-link :href="route('health.calculator')" :active="request()->routeIs('health.calculator')">
                 {{ __('Kalkulator BMI') }}
             </x-responsive-nav-link>
+            @if (Auth::user()->role === 'admin')
+            <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                {{ __('Dashboard Admin') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200">
