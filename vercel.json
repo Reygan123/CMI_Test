@@ -1,16 +1,21 @@
 {
     "version": 2,
-    "name": "cmi-test",
     "builds": [
       {
-        "src": "public/index.php",
-        "use": "@vercel/php"
+        "src": "public/*",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "public"
+        }
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "public/index.php"
+        "handle": "filesystem"
+      },
+      {
+        "src": "/.*",
+        "dest": "/index.php"
       }
     ]
   }
