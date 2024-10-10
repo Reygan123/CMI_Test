@@ -18,6 +18,9 @@
       "lodash": "^4.17.19",
       "postcss": "^8.4.6",
       "tailwindcss": "^3.4.13"
+    },
+    "engines": {
+      "node": "18.x"
     }
   }
   

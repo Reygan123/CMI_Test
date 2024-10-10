@@ -1,36 +1,22 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "public/index.php",
-        "use": "@vercel/php"
-      }
+    "regions": [
+        "fra1"
     ],
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.1"
+        }
+    },
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "public/index.php"
-      }
+        {
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
     ],
-    "env": {
-      "APP_ENV": "production",
-      "APP_KEY": "base64:mBILpSpYlRKHHxcabaPyTakyFR7yQqn7T8IL8BMMLGg=",
-      "APP_DEBUG": "false",
-      "APP_URL": "https://vercel.live/link/cmi-test.vercel.app?via=deployment-domains-list&p=1",
-      "DB_CONNECTION": "mysql",
-      "DB_HOST": "your-db-host",
-      "DB_PORT": "3306",
-      "DB_DATABASE": "cmi_test",
-      "DB_USERNAME": "root",
-      "DB_PASSWORD": "",
-      "CACHE_DRIVER": "file",
-      "SESSION_DRIVER": "file",
-      "QUEUE_CONNECTION": "sync",
-      "REDIS_HOST": "127.0.0.1",
-      "REDIS_PORT": "6379",
-      "MAIL_MAILER": "smtp",
-      "MAIL_HOST": "mailhog",
-      "MAIL_PORT": "1025"
-    }
-  }
-  
+    "outputDirectory": "public"
+}
